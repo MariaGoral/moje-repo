@@ -1,35 +1,29 @@
 ﻿using System;
 
-namespace MojaAplikacja
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        int[] numbers = { 1, 3, 7, 9, 2 };
+        int max = FindMax(numbers);
+        Console.WriteLine($"Maksymalna wartość to: {max}");
+    }
+
+    // Dodajemy metodę FindMax
+    static int FindMax(int[] numbers)
+    {
+        int max = numbers[0];
+        foreach (int number in numbers)
         {
-            Console.WriteLine("Podaj liczby oddzielone spacjami:");
-            string input = Console.ReadLine();
-            int[] numbers = Array.ConvertAll(input.Split(' '), int.Parse);
-            double average = CalculateAverage(numbers);
-            Console.WriteLine($"Średnia: {average}");
-        }
-
-        public static double CalculateAverage(int[] numbers)
-        {
-            if (numbers == null || numbers.Length == 0)
+            if (number > max)
             {
-                return 0; // Zwróć 0, jeśli tablica jest pusta
+                max = number;
             }
-
-            double sum = 0;
-            foreach (var number in numbers)
-            {
-                sum += number;
-            }
-
-            return sum / numbers.Length;
         }
+        return max;
     }
 }
+
 
 
 
