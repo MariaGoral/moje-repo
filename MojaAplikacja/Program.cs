@@ -6,7 +6,9 @@ namespace MojaAplikacja
     {
         static void Main(string[] args)
         {
-            int[] numbers = { 1, 2, 3, 4, 5 };
+            Console.WriteLine("Podaj liczby oddzielone spacjami:");
+            string input = Console.ReadLine();
+            int[] numbers = Array.ConvertAll(input.Split(' '), int.Parse);
             double average = CalculateAverage(numbers);
             Console.WriteLine($"Średnia: {average}");
         }
@@ -28,5 +30,6 @@ namespace MojaAplikacja
         }
     }
 }
+
 
 
