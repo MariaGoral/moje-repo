@@ -1,29 +1,32 @@
 ﻿using System;
 
-class Program
+namespace MojaAplikacja
 {
-    static void Main(string[] args)
+    class Program
     {
-        Console.Write("Podaj swoje imię: ");
-        string name = Console.ReadLine();
-        Console.WriteLine("Witaj, " + name + "!");
-
-        Console.Write("Podaj pierwszą liczbę: ");
-        int num1 = Convert.ToInt32(Console.ReadLine());
-        Console.Write("Podaj drugą liczbę: ");
-        int num2 = Convert.ToInt32(Console.ReadLine());
-        int sum = num1 + num2;
-
-        Console.WriteLine("Suma tych liczb wynosi: " + sum);
-
-        if (sum > 10)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Suma jest większa niż 10!");
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            double average = CalculateAverage(numbers);
+            Console.WriteLine($"Średnia: {average}");
         }
-        else
+
+        public static double CalculateAverage(int[] numbers)
         {
-            Console.WriteLine("Suma jest mniejsza lub równa 10.");
+            if (numbers == null || numbers.Length == 0)
+            {
+                return 0; // Zwróć 0, jeśli tablica jest pusta
+            }
+
+            double sum = 0;
+            foreach (var number in numbers)
+            {
+                sum += number;
+            }
+
+            return sum / numbers.Length;
         }
     }
 }
+
 
